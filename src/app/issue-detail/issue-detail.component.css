@@ -1,0 +1,12 @@
+.tag-item {
+  display: flex;
+  align-items: center;
+}
+
+.tag-label {
+  margin-left: 16px;
+}
+.mat-mdc-list-item-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+

@@ -1,0 +1,21 @@
+<!--Display all issues-->
+<p> 👋 Welcome to our demo </p>
+
+<mat-form-field appearance="fill">
+  <mat-label>Tickets</mat-label>
+  <mat-select [(ngModel)]="selectedticketID" (selectionChange)="ticketDetail()" >
+    <mat-option [value]="ticket.id" *ngFor="let ticket of tickets">{{ticket.title}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Labels</mat-label>
+  <mat-select [(ngModel)]="searchLabel" [formControl]="labels" multiple >
+    <mat-option [value]="tag.label" *ngFor="let tag of tags">{{tag.label}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<app-issue-detail [detail]="selectedTicket" [comments]="selectedTicketComments"></app-issue-detail>
+
+
+

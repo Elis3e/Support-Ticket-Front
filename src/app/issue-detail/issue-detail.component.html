@@ -1,0 +1,25 @@
+<!--Display the selected issue with some details-->
+<mat-list *ngIf="ticket">
+
+  <mat-list-item>
+    <div matListItemTitle>{{ticket.title}} #{{ticket.id}}</div>
+    <div matListItemLine> {{ticket.status}} {{ticket.updated | date}}</div>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-icon matListItemIcon>square</mat-icon>
+    <div matListItemTitle>{{ticket.body}}</div>
+    <div matListItemLine>by {{ticket.creator.name}} on {{ticket.updated | date}}</div>
+  </mat-list-item>
+  <mat-list-item *ngFor="let com of ticketComments" >
+    <mat-icon matListItemIcon>circle</mat-icon>
+    <div matListItemTitle>{{com.text}}</div>
+    <div matListItemLine>by {{com.user.name}} on {{com.date | date}}</div>
+  </mat-list-item>
+
+
+  <mat-list-item *ngFor="let tag of ticket.tags" class="tag-item">
+    <mat-icon matListItemIcon>tag</mat-icon>
+    <div matListItemLine>{{tag.label}}</div>
+  </mat-list-item>
+</mat-list>
+
